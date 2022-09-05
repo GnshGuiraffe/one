@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-product="alura">
+    <head>
+	    <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <canvas width="600" height="400"></canvas>
+
+        <script>
+        
+            var tela = document.querySelector('canvas');
+            var pincel = tela.getContext('2d');
+            pincel.fillStyle = 'white';
+            pincel.fillRect(0, 0, 600, 400);
+        
+            function desenhaQuadrado(x, y, largura, altura, cor) {
+        
+                pincel.fillStyle = cor;
+                pincel.fillRect(x,y,largura, altura);
+                pincel.strokeStyle='black';
+                pincel.strokeRect(x,y, largura, altura);
+            }
+
+            desenhaQuadrado(0,0,100,100,'green');
+            desenhaQuadrado(100,0,100,100,'green');
+            desenhaQuadrado(200,0,100,100,'green');
+            desenhaQuadrado(300,0,100,100,'white');
+
+        </script>
+    </body>
+    </html>
