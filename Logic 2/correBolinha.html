@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-product="alura">
+    <head>
+	<meta charset="UTF-8">
+    </head>
+
+    <body>
+        <canvas width="600" height="400"></canvas>
+
+        <script>
+        
+            var tela = document.querySelector('canvas');
+            var pincel = tela.getContext('2d');
+            pincel.fillStyle = 'lightgray';
+            pincel.fillRect(0, 0, 600, 400);
+        
+            function desenhaCirculo1(x1, y, raio) {
+        
+                pincel.fillStyle = 'orange';
+                pincel.beginPath();
+                pincel.arc(x1, y, raio, 0, 2 * Math.PI);
+                pincel.fill();
+            }
+
+            function desenhaCirculo2(x2, y, raio) {
+        
+                pincel.fillStyle = 'blue';
+                pincel.beginPath();
+                pincel.arc(x2, y, raio, 0, 2 * Math.PI);
+                pincel.fill();
+    }
+        
+            function limpaTela() {
+        
+                pincel.clearRect(0, 0, 600, 400);
+            }
+        
+        var x1 = 20;
+        var x2 = 30;
+        var sentido = 1;
+
+            function atualizaTela() {
+                  
+                limpaTela();
+
+                if( x1 > 600) {
+                    sentido = -1
+                } else if (x1 < 0) {
+                    sentido = 1;
+                }
+                
+                if( x2 > 600) {
+                    sentido = -1
+                } else if (x2 < 0) {
+                    sentido = 1;
+                }
+
+                desenhaCirculo1(x1, 20, 10);
+                desenhaCirculo2(x2, 40, 10);
+                x1 = x1 + sentido;
+                x2 = x2 + sentido;
+            }
+        
+            setInterval(atualizaTela, 1);
+        
+        </script>
+    </body></html>

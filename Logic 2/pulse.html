@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-product="alura">
+    <head>
+	<meta charset="UTF-8">
+    </head>
+
+    <body>
+        <canvas width="600" height="400"></canvas>
+
+        <script>
+        
+            var tela = document.querySelector('canvas');
+            var pincel = tela.getContext('2d');
+            pincel.fillStyle = 'lightgray';
+            pincel.fillRect(0, 0, 600, 400);
+        
+            function desenhaCirculo1(x1, y1, raio1, cor1) {
+
+                pincel.fillStyle = cor1;
+                pincel.beginPath();
+                pincel.arc(x1, y1, raio1, 0, 2 * Math.PI);
+                pincel.fill();
+                }
+
+            function desenhaCirculo2(x2, y2, raio2, cor2) {
+
+                pincel.fillStyle = cor2;
+                pincel.beginPath();
+                pincel.arc(x2, y2, raio2, 0, 2 * Math.PI);
+                pincel.fill();
+                }
+
+            function limpaTela() {
+
+                pincel.clearRect(0, 0, 600, 400);
+                }
+
+            var raio1 = 24;
+            var raio2 = 19;
+
+            var fatorCrescimento = 0;
+
+            function atualizaTela() {
+
+                limpaTela();
+
+                if(raio1 > 50) {
+                    fatorCrescimento = -1;
+                } else if (raio1 < 30) {
+                    fatorCrescimento = 1;
+                }
+
+                if(raio2 > 30) {
+                    fatorCrescimento = -1;
+                } else if (raio2 < 20) {
+                    fatorCrescimento = 1;
+                }
+
+                raio1 = raio1 + fatorCrescimento;
+                raio2 = raio2 + fatorCrescimento;
+                
+                desenhaCirculo1(300, 200, raio1, 'pink');
+                desenhaCirculo2(300, 200, raio2, 'red');
+
+                }
+
+                setInterval(atualizaTela, 20);
+        
+        </script>
+    </body></html>
